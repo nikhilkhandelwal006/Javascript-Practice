@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+          body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      section {
+        width: 60rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      div {
+        padding: 6rem 10rem;
+        border: 3px solid #1f2544;
+        cursor: pointer;
+        font-size: 2rem;
+        text-transform: uppercase;
+        background-color: #c7c8cc;
+        color: #1f2544;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+          rgb(51, 51, 51) 0px 0px 0px 3px;
+      }
+
+      #inner:hover {
+        background-color: #d6417a;
+        color: #000;
+        z-index: 3;
+        position: relative;
+      }
+
+      #middle:hover {
+        background-color: #9f70fd;
+        color: #000;
+        z-index: 2;
+        position: relative;
+      }
+
+      #outer:hover {
+        background-color: #9bcf53;
+        color: #000;
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+</head>
+<body>
+   <section>
+    <div id="outer">
+        outer
+        <div id="middle">
+            middle
+            <div id="inner">
+              inner
+            </div>
+        </div>
+    </div>
+   </section>   
+   
+   <script>
+
+   const callOuter=(event)=>{
+    console.table([{
+        Description:"I am the Outer one",
+        Target: event.target,
+        currentTarget: event.currentTarget,
+
+    },]);
+    
+
+   }
+
+   const callMiddle=(event)=>{
+    console.table([{
+        Description:"I am the Middle one",
+        Target: event.target,
+        currentTarget: event.currentTarget,
+    },
+]);
+
+     }
+
+     const callInner=(event)=>{
+        console.table([{
+         Description:"I am the inner one",
+        Target: event.target,
+        currentTarget: event.currentTarget,
+        },
+    ]);
+        // event.stopPropagation();
+     }
+   
+    //  document.getElementById("outer").addEventListener("click",callOuter)
+    //  document.getElementById("middle").addEventListener("click",callMiddle)
+    //  document.getElementById("inner").addEventListener("click",callInner)
+
+    /////////////BY default this is a bubbling Phase.
+
+
+    ////// For capturing Phase :-
+
+     document.getElementById("outer").addEventListener("click",callOuter,true)
+     document.getElementById("middle").addEventListener("click",callMiddle,true)
+     document.getElementById("inner").addEventListener("click",callInner,true)
+
+
+  
+   </script>
+</body>
+</html>

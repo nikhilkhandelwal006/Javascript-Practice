@@ -1,0 +1,73 @@
+<!-- There are 3 ways of writing events in js -->
+<!-- (i.) MouseEvent In Js
+ (ii.) KeyboardEvent In Js
+ (iii.) inputsEvent In Js -->
+
+<!-- <i.> MouseEvent In Js
+   
+  
+  Event	                                    Occurs When
+ onclick                       	A user clicks on an element
+ oncontextmenu                  	A user right-clicks on an element
+ ondblclick	                    A user double-clicks on an element
+ onmousedown                  	A mouse button is pressed over an element
+ onmouseenter                	The mouse pointer moves into an element
+ onmouseleave                	The mouse pointer moves out of an element
+ onmousemove	                    The mouse pointer moves over an element
+ onmouseout                  	The mouse pointer moves out of an element
+ onmouseover	                    The mouse pointer moves onto an element
+ onmouseup	                        mouse button is released over an element
+
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style></style>
+  <body>
+    <!------Start inline Event----------->
+
+    <h1>Inline Event</h1>
+    <button onclick="alert('welcome')">Greeting</button>
+    <button ondblclick="alert('welcome Js course')">greetings</button>
+    <button onmouseover="alert('welcome again')">greeting</button>
+    <!------End inline Event----------->
+
+    <!------Start DOM Event----------->
+    <h1>DOM Event Handler</h1>
+    <button id="myBtn">greeting</button>
+    <button id="myBtn1">greeting again</button>
+
+    <!------End DOM Event----------->
+
+    <!------Start addEventListener Event Handler----------->
+    <h1>addEventListener Event Handler</h1>
+    <button id="myBtn2">greeting</button>
+    <button id="myBtn3">greeting again</button>
+
+    <!------End addEventListener Event Handler----------->
+  </body>
+  <script>
+    document.getElementById("myBtn").onclick = () => {
+      window.alert("welcome NK");
+    };
+
+    document.getElementById("myBtn1").ondblclick = function () {
+      window.alert("Welcome nikhil");
+    };
+
+    //add Event Listener
+
+    document.getElementById("myBtn2").addEventListener("click", () => {
+      alert("js course");
+    });
+
+    document.getElementById("myBtn3").addEventListener("mouseover", () => {
+      alert("javascript");
+    });
+  </script>
+</html>

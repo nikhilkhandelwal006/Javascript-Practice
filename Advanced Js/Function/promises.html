@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dad Jokes!</title>
+</head>
+<body>
+    <div>
+        <h1>Welcome to Dad Jokes!</h1>
+        <section class="api_body"></section>
+        <button id="fetchJoke">Get Another Jokes</button>
+    </div>
+    <script>
+        const apiBody=document.querySelector(".api_body");
+        //  const apiUrl = "https://jsonplaceholder.typicode.com/posts/1";
+      const apiUrl = "https://icanhazdadjoke.com/";
+
+    // const fetchData=()=>{
+    //     const response=fetch(apiUrl)
+    //     .then((res)=>{
+    //         console.log(res)
+    //       return res.json();//When you make a request using the fetch() function,hte response contains data in the form of a JSON string. The res.json() method is used to asynchronously parse this JSON string into a javascript object.
+    //     }).then((data)=>{
+    //        console.log(data.title)
+    //     })
+    //     .catch((error)=>{
+    //         console.log(error)
+    //     })
+    // }
+
+    
+    const fetchData=()=>{
+        const response=fetch(apiUrl, {
+            headers:{
+                Accept:"application/json",
+            },
+        })
+        .then((res)=>{
+            console.log(res)
+          return res.json();
+        }).then((data)=>{
+           console.log(data.joke)
+           apiBody.innerHTML =data.joke;
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
+
+     fetchData();
+    document.getElementById("fetchJoke").addEventListener("click",fetchData);
+    </script>
+</body>
+</html>
